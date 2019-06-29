@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Watch Random</title>
+		
+		<style type="text/css">
+			body {background-color: lightblue;}
+			
+			#randomTable {border: 1px solid black; border-spacing: 0; border-collapse: collapse; margin: 100px auto;}
+			#randomTable td {border: 1px solid black; width: 25px; height: 25px;}
+			#randomTable td.active {background-color: yellow; cursor: pointer;}
+		</style>
+	</head>
+	
+	<body>
+		<table id="randomTable">
+			<tbody></tbody>
+		</table>
+		
+		<script type="text/javascript">
+			// #randomTable tr-td Creater
+			var oRandomTable = document.getElementById('randomTable');
+			
+			for (var i = 0; i < 20; i++)
+			{
+				var oTr = document.createElement('tr');
+				
+				oRandomTable.tBodies[0].appendChild(oTr);
+			}
+			for (var i = 0; i < oRandomTable.tBodies[0].rows.length; i++)
+			{
+				for (var j = 0; j < 20; j++)
+				{
+					var oTd = document.createElement('td');
+					
+					oRandomTable.tBodies[0].rows[i].appendChild(oTd);
+				}
+			}
+			
+			// Random Summon Active Td
+			var aTd = oRandomTable.getElementsByTagName('td');
+			
+			aTd[Math.round(Math.random() * 400)].className = 'active';
+			
+			function active()
+			{
+				for (var i = 0; i < aTd.length; i++)
+				{
+					if (aTd[i].className == 'active')
+					{
+						aTd[i].onclick = function ()
+						{
+							this.className = '';
+							
+							aTd[Math.round(Math.random() * 400)].className = 'active';
+							
+							active();
+						}
+					}
+					else
+					{
+						aTd[i].onclick = null;
+					}
+					
+				}
+			}
+
+			active();
+		</script>
+		
+	</body>
+</html>
