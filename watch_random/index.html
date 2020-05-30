@@ -19,7 +19,7 @@
 		</table>
 		
 		<script type="text/javascript">
-			// #randomTable tr-td Creater
+			// #randomTable tr&td creater
 			var oRandomTable = document.getElementById('randomTable');
 			
 			for (var i = 0; i < 20; i++)
@@ -38,7 +38,7 @@
 				}
 			}
 			
-			// Random Summon Active Td
+			// Summon actived td randomly
 			var aTd = oRandomTable.getElementsByTagName('td');
 			
 			aTd[Math.round(Math.random() * 400)].className = 'active';
