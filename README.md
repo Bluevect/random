@@ -1,2 +1,2 @@
 # random
-Something About Random Will Push On Here
+Some code that shows the visual part of random
